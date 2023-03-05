@@ -15,12 +15,15 @@ import static org.lwjgl.opengl.GL20.GL_COMPILE_STATUS;
 import static org.lwjgl.opengl.GL20.GL_FRAGMENT_SHADER;
 import static org.lwjgl.opengl.GL20.GL_INFO_LOG_LENGTH;
 import static org.lwjgl.opengl.GL20.GL_VERTEX_SHADER;
+import static org.lwjgl.opengl.GL20.glAttachShader;
 import static org.lwjgl.opengl.GL20.glCompileShader;
+import static org.lwjgl.opengl.GL20.glCreateProgram;
 import static org.lwjgl.opengl.GL20.glCreateShader;
 import static org.lwjgl.opengl.GL20.glDisableVertexAttribArray;
 import static org.lwjgl.opengl.GL20.glEnableVertexAttribArray;
 import static org.lwjgl.opengl.GL20.glGetShaderInfoLog;
 import static org.lwjgl.opengl.GL20.glGetShaderi;
+import static org.lwjgl.opengl.GL20.glLinkProgram;
 import static org.lwjgl.opengl.GL20.glShaderSource;
 import static org.lwjgl.opengl.GL20.glUseProgram;
 import static org.lwjgl.opengl.GL20.glVertexAttribPointer;
@@ -31,6 +34,8 @@ import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
 import org.lwjgl.BufferUtils;
+
+import renderer.Shader;
 
 public class LevelEditorScene extends Scene {
 	private String vertexShaderSrc = "#version 330 core\n" + "layout (location=0) in vec3 aPos;\n"
@@ -47,7 +52,7 @@ public class LevelEditorScene extends Scene {
 			0.5f, -0.5f, 0.0f,           1.0f, 0.0f, 0.0f, 1.0f, // Bottom right
 		   -0.5f, 0.5f, 0.0f,            0.0f, 1.0f, 0.0f, 1.0f, // Top left
 			0.5f, 0.5f, 0.0f,            0.0f, 0.0f, 1.0f, 1.0f, // Top right
-		   -0.5f, -0.5f, 0.0f,           1.0f, 1.0f, 0.0f, 1.0f // Bottom left
+		   -0.5f, -0.5f, 0.0f,           1.0f, 1.0f, 0.0f, 1.0f, // Bottom left
 	};
 
 	// IMPORTANT: Must be in counter-clockwise order
@@ -58,11 +63,13 @@ public class LevelEditorScene extends Scene {
 	private int vaoID, vboID, eboID;
 
 	public LevelEditorScene() {
-
+		
 	}
 
 	@Override
 	public void init() {
+		Shader testShader = new Shader("assets/shaders/default.glsl");
+		
 		// =======================================================
 		// Compile and link shader
 		// =======================================================
@@ -94,6 +101,21 @@ public class LevelEditorScene extends Scene {
 			int len = glGetShaderi(fragmentID, GL_INFO_LOG_LENGTH);
 			System.out.println("ERROR: 'defaultShader.glsl'\n\tFragment shader compilation failed.");
 			System.out.println(glGetShaderInfoLog(fragmentID, len));
+			assert false : "";
+		}
+		
+		// Link shader and check for errors
+		shaderProgram = glCreateProgram();
+		glAttachShader(shaderProgram, vertexID);
+		glAttachShader(shaderProgram, fragmentID);
+		glLinkProgram(shaderProgram);
+		
+		// Check for linking errors
+		success = glGetProgrami(shaderProgram, GL_LINK_STATUS);
+		if(success == GL_FALSE) {
+			int len = glGetProgrami(shaderProgram, GL_INFO_LOG_LENGTH);
+			System.out.println("ERROR: 'defaultShader.glsl'\n\tLinking of shader failed.");
+			System.out.println(glGetProgramInfolog(shaderProgram, len));
 			assert false : "";
 		}
 
