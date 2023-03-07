@@ -19,6 +19,7 @@ import static org.lwjgl.opengl.GL30.glGenVertexArrays;
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
 
+import org.joml.Vector2f;
 import org.lwjgl.BufferUtils;
 
 import renderer.Shader;
@@ -56,7 +57,8 @@ public class LevelEditorScene extends Scene {
 
 	@Override
 	public void init() {
-		Shader defaultShader = new Shader("assets/shaders/default.glsl");
+		this.camera = new Camera(new Vector2f());
+		defaultShader = new Shader("assets/shaders/default.glsl");
 		defaultShader.compile();
 		
 		// ==========================================================
@@ -98,6 +100,9 @@ public class LevelEditorScene extends Scene {
 	@Override
 	public void update(float dt) {
 		defaultShader.use();
+		defaultShader.uploadMat4f("uProjection", camera.getProjectionMatrix());
+		defaultShader.uploadMat4f("uView", camera.getViewMatrix());
+		
 		// Bind the VAO that we're using
 		glBindVertexArray(vaoID);
 
