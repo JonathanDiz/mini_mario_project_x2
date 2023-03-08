@@ -1,11 +1,12 @@
 package renderer;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 import components.SpriteRenderer;
 import jade.GameObject;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class Renderer {
 	private final int MAX_BATCH_SIZE = 1000;

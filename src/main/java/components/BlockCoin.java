@@ -1,7 +1,5 @@
 package components;
 
-import java.awt.Component;
-
 import org.joml.Vector2f;
 
 import util.AssetPool;

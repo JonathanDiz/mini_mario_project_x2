@@ -1,9 +1,9 @@
 package editor;
 
-import java.awt.Event;
-
 import imgui.ImGui;
 import observers.EventSystem;
+import observers.events.Event;
+import observers.events.EventType;
 
 public class MenuBar {
 

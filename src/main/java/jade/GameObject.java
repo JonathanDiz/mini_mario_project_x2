@@ -1,16 +1,15 @@
 package jade;
 
-import java.awt.Component;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
+import components.Component;
 import components.ComponentDeserializer;
 import components.SpriteRenderer;
 import imgui.ImGui;
 import util.AssetPool;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameObject {
 	private static int ID_COUNTER = 0;

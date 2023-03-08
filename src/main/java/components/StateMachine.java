@@ -1,12 +1,12 @@
 package components;
 
+import imgui.ImGui;
+import imgui.type.ImString;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
-
-import imgui.ImGui;
-import imgui.type.ImString;
 
 public class StateMachine extends Component {
 	private class StateTrigger {

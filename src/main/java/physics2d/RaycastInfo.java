@@ -1,11 +1,10 @@
 package physics2d;
 
+import jade.GameObject;
 import org.jbox2d.callbacks.RayCastCallback;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Fixture;
 import org.joml.Vector2f;
-
-import jade.GameObject;
 
 public class RaycastInfo implements RayCastCallback {
 	public Fixture fixture;

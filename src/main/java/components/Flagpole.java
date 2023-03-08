@@ -2,7 +2,7 @@ package components;
 
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
-
+import util.AssetPool;
 import jade.GameObject;
 
 public class Flagpole extends Component {

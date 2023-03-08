@@ -1,10 +1,8 @@
 package jade;
 
-import java.awt.Component;
-
-import org.joml.Vector2f;
-
+import components.Component;
 import editor.JImGui;
+import org.joml.Vector2f;
 
 public class Transform extends Component {
 

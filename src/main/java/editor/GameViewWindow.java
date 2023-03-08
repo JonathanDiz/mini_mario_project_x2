@@ -1,15 +1,14 @@
 package editor;
 
-import java.awt.Event;
-
-import org.joml.Vector2f;
-
 import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiWindowFlags;
 import jade.MouseListener;
 import jade.Window;
 import observers.EventSystem;
+import observers.events.Event;
+import observers.events.EventType;
+import org.joml.Vector2f;
 
 public class GameViewWindow {
 

@@ -1,15 +1,11 @@
 package components;
 
-import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
-
+import editor.PropertiesWindow;
+import jade.*;
 import org.joml.Vector2f;
 import org.joml.Vector4f;
 
-import editor.PropertiesWindow;
-import jade.GameObject;
-import jade.MouseListener;
-import jade.Prefabs;
-import jade.Window;
+import static org.lwjgl.glfw.GLFW.*;
 
 public class Gizmo extends Component {
 	private Vector4f xAxisColor = new Vector4f(1, 0.3f, 0.3f, 1);

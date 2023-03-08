@@ -1,31 +1,17 @@
 package scenes;
 
-import java.io.File;
-import java.util.Collection;
-
-import org.joml.Vector2f;
-
-import components.BreakableBrick;
-import components.EditorCamera;
-import components.GizmoSystem;
-import components.GridLines;
-import components.Ground;
-import components.KeyControls;
-import components.MouseControls;
-import components.Sprite;
-import components.SpriteRenderer;
-import components.Spritesheet;
-import components.StateMachine;
+import components.*;
 import imgui.ImGui;
 import imgui.ImVec2;
-import jade.Direction;
-import jade.GameObject;
-import jade.Prefabs;
-import jade.Sound;
+import jade.*;
+import org.joml.Vector2f;
 import physics2d.components.Box2DCollider;
 import physics2d.components.Rigidbody2D;
 import physics2d.enums.BodyType;
 import util.AssetPool;
+
+import java.io.File;
+import java.util.Collection;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
 

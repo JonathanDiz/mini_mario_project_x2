@@ -1,24 +1,23 @@
 package components;
 
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
-import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
-
-import java.util.HashSet;
-import java.util.Set;
-
-import org.joml.Vector2f;
-import org.joml.Vector2i;
-import org.joml.Vector4f;
-
 import editor.PropertiesWindow;
 import jade.GameObject;
 import jade.KeyListener;
 import jade.MouseListener;
 import jade.Window;
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector4f;
 import renderer.DebugDraw;
 import renderer.PickingTexture;
 import scenes.Scene;
 import util.Settings;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
+import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component {
 	GameObject holdingObject = null;

@@ -1,7 +1,5 @@
 package components;
 
-import java.awt.Component;
-
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
 

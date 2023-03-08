@@ -1,8 +1,7 @@
 package physics2dtmp.primitives;
 
 import org.joml.Vector2f;
-
-import physics2d.components.Rigidbody2D;
+import physics2dtmp.rigidbody.Rigidbody2D;
 
 public class Circle extends Collider2D {
 	private float radius = 1.0f;
