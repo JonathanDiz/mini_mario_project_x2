@@ -50,8 +50,9 @@ dependencies {
     runtimeOnly "org.lwjgl:lwjgl-openal::$lwjglNatives"
     runtimeOnly "org.lwjgl:lwjgl-opengl::$lwjglNatives"
     runtimeOnly "org.lwjgl:lwjgl-stb::$lwjglNatives"
-    implementation "org.joml:joml:${jomlVersion}"
-    implementation files('libs/jbox2d-library.jar')
+    implementation files("libs/jbox2d-library.jar")
+    implementation 'org.joml:joml:1.9.25'
+    implementation "io.github.spair:imgui-java:$imguiVersion"
 }
 
 jar {
