@@ -53,8 +53,7 @@ public class Scene {
 	}
 
 	public void start() {
-		for (int i = 0; i < gameObjects.size(); i++) {
-			GameObject go = gameObjects.get(i);
+		for (GameObject go : gameObjects) {
 			go.start();
 			this.renderer.add(go);
 			this.physics2D.add(go);
@@ -208,16 +207,16 @@ public class Scene {
 			int maxGoId = -1;
 			int maxCompId = -1;
 			GameObject[] objs = gson.fromJson(inFile, GameObject[].class);
-			for (int i = 0; i < objs.length; i++) {
-				addGameObjectToScene(objs[i]);
+			for (GameObject obj : objs) {
+				addGameObjectToScene(obj);
 
-				for (Component c : objs[i].getAllComponents()) {
+				for (Component c : obj.getAllComponents()) {
 					if (c.getUid() > maxCompId) {
 						maxCompId = c.getUid();
 					}
 				}
-				if (objs[i].getUid() > maxGoId) {
-					maxGoId = objs[i].getUid();
+				if (obj.getUid() > maxGoId) {
+					maxGoId = obj.getUid();
 				}
 			}
 

@@ -1,15 +1,16 @@
 package jade;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+
 import components.Component;
 import components.ComponentDeserializer;
 import components.SpriteRenderer;
 import imgui.ImGui;
 import util.AssetPool;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class GameObject {
 	private static int ID_COUNTER = 0;
@@ -60,20 +61,20 @@ public class GameObject {
 	}
 
 	public void update(float dt) {
-		for (int i = 0; i < components.size(); i++) {
-			components.get(i).update(dt);
+		for (Component component : components) {
+			component.update(dt);
 		}
 	}
 
 	public void editorUpdate(float dt) {
-		for (int i = 0; i < components.size(); i++) {
-			components.get(i).editorUpdate(dt);
+		for (Component component : components) {
+			component.editorUpdate(dt);
 		}
 	}
 
 	public void start() {
-		for (int i = 0; i < components.size(); i++) {
-			components.get(i).start();
+		for (Component component : components) {
+			component.start();
 		}
 	}
 
@@ -86,8 +87,8 @@ public class GameObject {
 
 	public void destroy() {
 		this.isDead = true;
-		for (int i = 0; i < components.size(); i++) {
-			components.get(i).destroy();
+		for (Component component : components) {
+			component.destroy();
 		}
 	}
 

@@ -1,17 +1,31 @@
 package scenes;
 
-import components.*;
+import java.io.File;
+import java.util.Collection;
+
+import org.joml.Vector2f;
+
+import components.BreakableBrick;
+import components.EditorCamera;
+import components.GizmoSystem;
+import components.GridLines;
+import components.Ground;
+import components.KeyControls;
+import components.MouseControls;
+import components.Sprite;
+import components.SpriteRenderer;
+import components.Spritesheet;
+import components.StateMachine;
 import imgui.ImGui;
 import imgui.ImVec2;
-import jade.*;
-import org.joml.Vector2f;
+import jade.Direction;
+import jade.GameObject;
+import jade.Prefabs;
+import jade.Sound;
 import physics2d.components.Box2DCollider;
 import physics2d.components.Rigidbody2D;
 import physics2d.enums.BodyType;
 import util.AssetPool;
-
-import java.io.File;
-import java.util.Collection;
 
 public class LevelEditorSceneInitializer extends SceneInitializer {
 
@@ -110,9 +124,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
 				float windowX2 = windowPos.x + windowSize.x;
 				for (int i = 0; i < sprites.size(); i++) {
-					if (i == 34)
-						continue;
-					if (i >= 38 && i < 61)
+					if ((i == 34) || (i >= 38 && i < 61))
 						continue;
 
 					Sprite sprite = sprites.getSprite(i);
@@ -161,9 +173,7 @@ public class LevelEditorSceneInitializer extends SceneInitializer {
 
 				float windowX2 = windowPos.x + windowSize.x;
 				for (int i = 34; i < 61; i++) {
-					if (i >= 35 && i < 38)
-						continue;
-					if (i >= 42 && i < 45)
+					if ((i >= 35 && i < 38) || (i >= 42 && i < 45))
 						continue;
 
 					Sprite sprite = sprites.getSprite(i);

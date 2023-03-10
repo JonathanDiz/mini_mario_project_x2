@@ -1,12 +1,11 @@
 package renderer;
 
-import components.SpriteRenderer;
-import jade.GameObject;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+
+import components.SpriteRenderer;
+import jade.GameObject;
 
 public class Renderer {
 	private final int MAX_BATCH_SIZE = 1000;
@@ -66,8 +65,7 @@ public class Renderer {
 
 	public void render() {
 		currentShader.use();
-		for (int i = 0; i < batches.size(); i++) {
-			RenderBatch batch = batches.get(i);
+		for (RenderBatch batch : batches) {
 			batch.render();
 		}
 	}

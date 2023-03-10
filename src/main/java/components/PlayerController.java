@@ -1,24 +1,27 @@
 package components;
 
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_A;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_D;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_E;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_LEFT;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_RIGHT;
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_SPACE;
+
+import org.jbox2d.dynamics.contacts.Contact;
+import org.joml.Vector2f;
+import org.joml.Vector4f;
+
 import jade.GameObject;
 import jade.KeyListener;
 import jade.Prefabs;
 import jade.Window;
-import org.jbox2d.dynamics.contacts.Contact;
-import org.joml.Vector2f;
-import org.joml.Vector3f;
-import org.joml.Vector4f;
 import physics2d.Physics2D;
-import physics2d.RaycastInfo;
 import physics2d.components.PillboxCollider;
 import physics2d.components.Rigidbody2D;
 import physics2d.enums.BodyType;
-import renderer.DebugDraw;
 import scenes.LevelEditorSceneInitializer;
 import scenes.LevelSceneInitializer;
 import util.AssetPool;
-
-import static org.lwjgl.glfw.GLFW.*;
 
 public class PlayerController extends Component {
 

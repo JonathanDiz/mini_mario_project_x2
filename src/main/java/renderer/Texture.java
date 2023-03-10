@@ -115,9 +115,7 @@ public class Texture {
 
 	@Override
 	public boolean equals(Object o) {
-		if (o == null)
-			return false;
-		if (!(o instanceof Texture))
+		if ((o == null) || !(o instanceof Texture))
 			return false;
 		Texture oTex = (Texture) o;
 		return oTex.getWidth() == this.width && oTex.getHeight() == this.height && oTex.getId() == this.texID

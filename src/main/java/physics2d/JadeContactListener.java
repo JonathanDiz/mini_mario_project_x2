@@ -1,13 +1,14 @@
 package physics2d;
 
-import components.Component;
-import jade.GameObject;
 import org.jbox2d.callbacks.ContactImpulse;
 import org.jbox2d.callbacks.ContactListener;
 import org.jbox2d.collision.Manifold;
 import org.jbox2d.collision.WorldManifold;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
+
+import components.Component;
+import jade.GameObject;
 
 public class JadeContactListener implements ContactListener {
 	@Override

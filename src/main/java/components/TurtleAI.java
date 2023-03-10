@@ -1,10 +1,11 @@
 package components;
 
+import org.jbox2d.dynamics.contacts.Contact;
+import org.joml.Vector2f;
+
 import jade.Camera;
 import jade.GameObject;
 import jade.Window;
-import org.jbox2d.dynamics.contacts.Contact;
-import org.joml.Vector2f;
 import physics2d.Physics2D;
 import physics2d.components.Rigidbody2D;
 import util.AssetPool;

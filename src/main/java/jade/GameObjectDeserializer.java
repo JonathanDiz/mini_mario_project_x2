@@ -1,9 +1,10 @@
 package jade;
 
-import com.google.gson.*;
-import components.Component;
-
 import java.lang.reflect.Type;
+
+import com.google.gson.*;
+
+import components.Component;
 
 public class GameObjectDeserializer implements JsonDeserializer<GameObject> {
 	@Override

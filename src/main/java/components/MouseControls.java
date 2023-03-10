@@ -1,23 +1,24 @@
 package components;
 
+import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
+import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import org.joml.Vector2f;
+import org.joml.Vector2i;
+import org.joml.Vector4f;
+
 import editor.PropertiesWindow;
 import jade.GameObject;
 import jade.KeyListener;
 import jade.MouseListener;
 import jade.Window;
-import org.joml.Vector2f;
-import org.joml.Vector2i;
-import org.joml.Vector4f;
 import renderer.DebugDraw;
 import renderer.PickingTexture;
 import scenes.Scene;
 import util.Settings;
-
-import java.util.HashSet;
-import java.util.Set;
-
-import static org.lwjgl.glfw.GLFW.GLFW_KEY_ESCAPE;
-import static org.lwjgl.glfw.GLFW.GLFW_MOUSE_BUTTON_LEFT;
 
 public class MouseControls extends Component {
 	GameObject holdingObject = null;
@@ -148,9 +149,9 @@ public class MouseControls extends Component {
 		Vector2i endScreen = new Vector2i((int) endScreenf.x - 2, (int) endScreenf.y - 2);
 		float[] gameObjectIds = propertiesWindow.getPickingTexture().readPixels(startScreen, endScreen);
 
-		for (int i = 0; i < gameObjectIds.length; i++) {
-			if (gameObjectIds[i] >= 0) {
-				GameObject pickedObj = Window.getScene().getGameObject((int) gameObjectIds[i]);
+		for (float gameObjectId : gameObjectIds) {
+			if (gameObjectId >= 0) {
+				GameObject pickedObj = Window.getScene().getGameObject((int) gameObjectId);
 				if (pickedObj.getComponent(NonPickable.class) == null) {
 					return true;
 				}

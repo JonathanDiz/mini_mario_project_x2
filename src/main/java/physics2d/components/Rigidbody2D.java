@@ -1,15 +1,8 @@
 package physics2d.components;
 
+import org.jbox2d.common.Vec2;
+import org.jbox2d.dynamics.Body;
 import org.joml.Vector2f;
-import physics2dtmp.forces.ForceRegistry;
-import physics2dtmp.forces.Gravity2D;
-import physics2dtmp.primitives.Collider2D;
-import physics2dtmp.rigidbody.CollisionManifold;
-import physics2dtmp.rigidbody.Collisions;
-import physics2dtmp.rigidbody.Rigidbody2D;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Rigidbody2D extends Component {
 	private Vector2f velocity = new Vector2f();

@@ -1,8 +1,9 @@
 package jade;
 
+import org.joml.Vector2f;
+
 import components.Component;
 import editor.JImGui;
-import org.joml.Vector2f;
 
 public class Transform extends Component {
 
@@ -49,9 +50,7 @@ public class Transform extends Component {
 
 	@Override
 	public boolean equals(Object o) {
-		if (o == null)
-			return false;
-		if (!(o instanceof Transform))
+		if ((o == null) || !(o instanceof Transform))
 			return false;
 
 		Transform t = (Transform) o;

@@ -1,10 +1,10 @@
 package observers;
 
-import jade.GameObject;
-import observers.events.Event;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import jade.GameObject;
+import observers.events.Event;
 
 public class EventSystem {
 	private static List<Observer> observers = new ArrayList<>();

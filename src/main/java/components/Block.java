@@ -1,8 +1,9 @@
 package components;
 
-import jade.GameObject;
 import org.jbox2d.dynamics.contacts.Contact;
 import org.joml.Vector2f;
+
+import jade.GameObject;
 import util.AssetPool;
 
 public abstract class Block extends Component {
@@ -14,11 +15,13 @@ public abstract class Block extends Component {
 
 	public float bopSpeed = 0.4f;
 
+	@Override
 	public void start() {
 		this.bopStart = new Vector2f(this.gameObject.transform.position);
 		this.topBopLocation = new Vector2f(bopStart).add(0.0f, 0.02f);
 	}
 
+	@Override
 	public void update(float dt) {
 		if (doBopAnimation) {
 			if (bopGoingUp) {
@@ -39,6 +42,7 @@ public abstract class Block extends Component {
 		}
 	}
 
+	@Override
 	public void beginCollision(GameObject obj, Contact contact, Vector2f contactNormal) {
 		PlayerController playerController = obj.getComponent(PlayerController.class);
 		if (active && playerController != null && contactNormal.y < -0.8f) {
